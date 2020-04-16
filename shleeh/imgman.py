@@ -11,6 +11,7 @@ def reorient_to_ras(data, affine, resol):
         ras_data
         ras_resol
     """
+    np.set_printoptions(precision=4, suppress=True)
     shape = data.shape
     fov_size = np.asarray(shape) * resol
     rotate_mat = (affine[:3, :3] / resol).astype(np.int8)
@@ -30,13 +31,14 @@ def reorient_to_ras(data, affine, resol):
 
     rotate = ras_mm2vox[:3, :3]
     shift = ras_mm2vox[:3, 3]
+    print(shape, ras_shape)
 
     ras_data = affine_transform(data, rotate, shift, output_shape=ras_shape)
     return ras_data, ras_resol
 
 
-def determine_slice_planes(slice_axis, affine, resol):
+def determine_slice_plane(slice_axis, affine, resol):
     """ return the original scheme of slice plane """
     rotate_mat = (affine[:3, :3] / resol).astype(np.int8)
-    ras_axis = abs(rotate_mat.dot(range(3)).tolist())
-    return ['sagittal', 'axial', 'coronal'][ras_axis.index(slice_axis)]
+    ras_axis = abs(rotate_mat.dot(range(3))).tolist()
+    return ['sagittal', 'coronal', 'axial'][ras_axis.index(slice_axis)]
