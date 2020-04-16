@@ -13,4 +13,6 @@ __all__ = ['__version__',
            'RemoveFailedError',
            'RenameFailedError',
            'UnexpectedError',
+           'InvalidValueInField',
+           'ValueConflictInField'
            ]

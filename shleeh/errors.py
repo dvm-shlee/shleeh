@@ -95,4 +95,4 @@ class InvalidValueInField(Error):
         if message is None:
             self.message = "Invalid value is detected"
         else:
-            self.message
+            self.message = message
