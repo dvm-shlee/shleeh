@@ -78,3 +78,21 @@ class UnexpectedError(Error):
             self.message = "Unexpected error"
         else:
             self.message = message
+
+
+class ValueConflictInField(Error):
+    """ Raised when input value was conflicted with other """
+    def __init__(self, message=None):
+        if message is None:
+            self.message = "The value is conflicted"
+        else:
+            self.message = message
+
+
+class InvalidValueInField(Error):
+    """ Raise when the invalid value is detected in field """
+    def __init__(self, message=None):
+        if message is None:
+            self.message = "Invalid value is detected"
+        else:
+            self.message
