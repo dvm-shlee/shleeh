@@ -96,3 +96,13 @@ class InvalidValueInField(Error):
             self.message = "Invalid value is detected"
         else:
             self.message = message
+
+
+class InvalidApproach(Error):
+    """ Raise when the user try invalid approach """
+    def __init__(self, message=None):
+        if message is None:
+            self.message = "Invalid approach!"
+        else:
+            self.message = message
+
