@@ -12,7 +12,7 @@ __version__ = re.search(
     ).group(1)
 
 __author__ = 'SungHo Lee'
-__email__ = 'shlee:@unc.edu'
+__email__ = 'shlee@unc.edu'
 __url__ = 'https://github.com/dvm-shlee/bruker'
 
 setup(name='shleeh',
@@ -24,10 +24,9 @@ setup(name='shleeh',
       url=__url__,
       license='GNLv3',
       packages=find_packages(),
-      install_requires=['scipy',
-                        'numpy'],
+      install_requires=[],
       classifiers=[
-          'Development Status :: 1 - Planning',
+          'Development Status :: 5 - Production/Stable',
           'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
           'Natural Language :: English',
           'Operating System :: POSIX :: Linux',
