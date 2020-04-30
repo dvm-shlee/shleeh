@@ -6,4 +6,5 @@ __version__ = '0.0.4'
 __all__ = ['__version__',
            'TimeCounter',
            'DataType',
-           'get_installed_pkg']
+           'get_installed_pkg',
+           'deprecated_warning']
