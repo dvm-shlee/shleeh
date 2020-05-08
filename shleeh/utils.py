@@ -1,5 +1,4 @@
 import re
-import pip
 import time
 import warnings
 import pkg_resources
@@ -18,14 +17,6 @@ class TimeCounter:
         return time.time() - self._start
 
 
-def upgrade(*modules: list):
-    pip.main(['install', '--upgrade'] + modules)
-
-
-def install(*args):
-    pip.main(['install'] + args)
-
-
 def get_installed_pkg(regex=None):
     if regex is None:
         return [p for p in pkg_resources.working_set]
@@ -35,8 +26,6 @@ def get_installed_pkg(regex=None):
 
 
 def deprecated_warning(dep_func, alt_func, future=False):
-    # def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
-    #     return '%s: %s\n' % (category.__name__, message)
     if future:
         category = PendingDeprecationWarning
         tense = 'will be'
@@ -50,3 +39,8 @@ def deprecated_warning(dep_func, alt_func, future=False):
                   stacklevel=2)
     warnings.simplefilter("ignore")
 
+
+def user_warning(message):
+    warnings.simplefilter("default")
+    warnings.warn(message, UserWarning, stacklevel=2)
+    warnings.simplefilter("ignore")
