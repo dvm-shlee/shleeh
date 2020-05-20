@@ -44,3 +44,17 @@ def user_warning(message):
     warnings.simplefilter("default")
     warnings.warn(message, UserWarning, stacklevel=2)
     warnings.simplefilter("ignore")
+
+
+def debug_tool(message, fname=None, path=None):
+    import os
+    from datetime import datetime
+    now = datetime.now()
+    date = now.strftime("%Y%m%d")
+
+    if path is None:
+        path = os.path.expanduser('~')
+    if fname is None:
+        fname = f'debug_{date}'
+    with open(os.path.join(path, fname), 'a') as f:
+        f.write(message)
