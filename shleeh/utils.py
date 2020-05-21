@@ -17,6 +17,14 @@ class TimeCounter:
         return time.time() - self._start
 
 
+def kill_daemon(daemon_obj):
+    if daemon_obj.is_alive():
+        if daemon_obj._tstate_lock is not None:
+            daemon_obj._tstate_lock.release()
+    else:
+        pass
+
+
 def get_installed_pkg(regex=None):
     if regex is None:
         return [p for p in pkg_resources.working_set]
