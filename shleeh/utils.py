@@ -66,3 +66,11 @@ def debug_tool(message, fname=None, path=None):
         fname = f'debug_{date}'
     with open(os.path.join(path, fname), 'a') as f:
         f.write(message)
+
+
+def print_internal_error(io_handler=None):
+    import traceback, sys
+    if io_handler is None:
+        io_handler = sys.stderr
+    traceback.print_exception(*sys.exc_info(),
+                              file=io_handler)

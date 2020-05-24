@@ -1,4 +1,5 @@
 import os
+from .utils import print_internal_error
 
 
 class Error(Exception):
@@ -74,6 +75,7 @@ class RenameFailedError(Error):
 class UnexpectedError(Error):
     """ Raised when unexpected error occurred """
     def __init__(self, message=None):
+        print_internal_error()
         if message is None:
             self.message = "Unexpected error"
         else:
@@ -101,6 +103,7 @@ class InvalidValueInField(Error):
 class InvalidApproach(Error):
     """ Raise when the user try invalid approach """
     def __init__(self, message=None):
+        print_internal_error()
         if message is None:
             self.message = "Invalid approach!"
         else:
