@@ -13,4 +13,4 @@ __all__ = ['__version__',
            'deprecated_warning']
 
 
-__version__ = '0.0.7'
+__version__ = '0.0.8'
