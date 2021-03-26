@@ -18,7 +18,7 @@ __url__ = 'https://github.com/dvm-shlee/bruker'
 setup(name='shleeh',
       version=__version__,
       description='Helper for python module develop for dvm-shlee',
-      python_requires='>3.5, <=3.8',
+      python_requires='>3.5, <=3.8.8',
       author=__author__,
       author_email=__email__,
       url=__url__,
