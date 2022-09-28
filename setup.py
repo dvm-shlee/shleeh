@@ -13,12 +13,12 @@ __version__ = re.search(
 
 __author__ = 'SungHo Lee'
 __email__ = 'shlee@unc.edu'
-__url__ = 'https://github.com/dvm-shlee/bruker'
+__url__ = 'https://github.com/dvm-shlee/shleeh'
 
 setup(name='shleeh',
       version=__version__,
       description='Helper for python module develop for dvm-shlee',
-      python_requires='>3.5, <=3.8.8',
+      python_requires='>3.5',
       author=__author__,
       author_email=__email__,
       url=__url__,
@@ -32,7 +32,7 @@ setup(name='shleeh',
           'Operating System :: POSIX :: Linux',
           'Operating System :: MacOS',
           'Operating System :: Microsoft :: Windows :: Windows 10',
-          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: >3.5',
           'Topic :: Software Development',
       ],
       keywords='personal helper'
