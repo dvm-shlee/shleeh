@@ -32,7 +32,7 @@ setup(name='shleeh',
           'Operating System :: POSIX :: Linux',
           'Operating System :: MacOS',
           'Operating System :: Microsoft :: Windows :: Windows 10',
-          'Programming Language :: Python :: >3.5',
+          'Programming Language :: Python :: 3',
           'Topic :: Software Development',
       ],
       keywords='personal helper'
