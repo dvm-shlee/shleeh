@@ -14,7 +14,7 @@ __all__ = [
     'TimeCounter',
     'DataType',
     'get_installed_pkg',
-    'deprecated_warning'
+    'deprecated_warning',
     'errors'
     ]
 
