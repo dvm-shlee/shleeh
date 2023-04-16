@@ -8,7 +8,7 @@ version history
 from .enums import *
 from .utils import *
 from .debug import *
-from .debug import errors
+from . import errors
 
 __all__ = [
     '__version__',
@@ -16,7 +16,6 @@ __all__ = [
     'DataType',
     'get_installed_pkg',
     'deprecated_warning',
-    'errors'
 ]
 
 
