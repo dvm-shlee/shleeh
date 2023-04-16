@@ -1,5 +1,13 @@
 import os
-from .utils import print_internal_error
+
+
+def print_internal_error(io_handler=None):
+    import traceback
+    import sys
+    if io_handler is None:
+        io_handler = sys.stderr
+    traceback.print_exception(*sys.exc_info(),
+                              file=io_handler)
 
 
 class Error(Exception):
@@ -9,6 +17,7 @@ class Error(Exception):
 
 class FileNotValidError(Error):
     """ Raised when the file is not valid format """
+
     def __init__(self, file_name=None, data_type=None):
         self.file_name = None
         self.data_type = None
@@ -38,7 +47,8 @@ class ArchiveFailedError(Error):
     def __init__(self, file_name=None):
         if file_name is not None:
             self.file_name = os.path.basename(file_name)
-            self.message = "The data '{}' is not archived".format(self.file_name)
+            self.message = "The data '{}' is not archived".format(
+                self.file_name)
         else:
             self.message = "Archive failed to execute"
 
@@ -50,7 +60,8 @@ class RemoveFailedError(Error):
     def __init__(self, file_name=None):
         if file_name is not None:
             self.file_name = os.path.basename(file_name)
-            self.message = "The file '{}' is not removed".format(self.file_name)
+            self.message = "The file '{}' is not removed".format(
+                self.file_name)
         else:
             self.message = "Remove failed to execute"
 
@@ -74,6 +85,7 @@ class RenameFailedError(Error):
 
 class UnexpectedError(Error):
     """ Raised when unexpected error occurred """
+
     def __init__(self, message=None):
         print_internal_error()
         if message is None:
@@ -84,6 +96,7 @@ class UnexpectedError(Error):
 
 class ValueConflictInField(Error):
     """ Raised when input value was conflicted with other """
+
     def __init__(self, message=None):
         if message is None:
             self.message = "The value is conflicted"
@@ -93,6 +106,7 @@ class ValueConflictInField(Error):
 
 class InvalidValueInField(Error):
     """ Raise when the invalid value is detected in field """
+
     def __init__(self, message=None):
         if message is None:
             self.message = "Invalid value is detected"
@@ -102,10 +116,10 @@ class InvalidValueInField(Error):
 
 class InvalidApproach(Error):
     """ Raise when the user try invalid approach """
+
     def __init__(self, message=None):
         print_internal_error()
         if message is None:
             self.message = "Invalid approach!"
         else:
             self.message = message
-

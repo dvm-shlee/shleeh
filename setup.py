@@ -4,12 +4,13 @@ Helper for python module develop for dvm-shlee
 """
 from distutils.core import setup
 from setuptools import find_packages
-import re, io
+import re
+import io
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
     io.open('shleeh/__init__.py', encoding='utf_8_sig').read()
-    ).group(1)
+).group(1)
 
 __author__ = 'SungHo Lee'
 __email__ = 'shlee@unc.edu'
@@ -36,4 +37,4 @@ setup(name='shleeh',
           'Topic :: Software Development',
       ],
       keywords='personal helper'
-     )
+      )

@@ -7,7 +7,8 @@ version history
 """
 from .enums import *
 from .utils import *
-from . import errors
+from .debug import *
+from .debug import errors
 
 __all__ = [
     '__version__',
@@ -16,7 +17,7 @@ __all__ = [
     'get_installed_pkg',
     'deprecated_warning',
     'errors'
-    ]
+]
 
 
 __version__ = '0.1.1'
